@@ -63,6 +63,10 @@ OMXStore::~OMXStore() {
 
 void OMXStore::addVendorPlugin() {
     addPlugin("libstagefrighthw.so");
+
+    if (::android::base::GetBoolProperty("ro.vendor.audio.dolby.dax.support", false)) {
+        addPlugin("libstagefrightdolby.so");
+    }
 }
 
 void OMXStore::addPlatformPlugin() {
