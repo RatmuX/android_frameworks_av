@@ -417,7 +417,7 @@ const std::unordered_map<metadata_vendor_id_t, sp<android::VendorTagDescriptor>>
 }
 
 int VendorTagDescriptorCache::getTagCount(metadata_vendor_id_t id) const {
-    int ret = 0;
+    int ret = -1;
     auto desc = mVendorMap.find(id);
     if (desc != mVendorMap.end()) {
         ret = desc->second->getTagCount();
